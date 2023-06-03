@@ -6,7 +6,7 @@ const host = process.env.HOST_IP || ip.address();
 const kafkaClientOptions = { sessionTimeout: 100, spinDelay: 100, retries: 2 };
 const kafkaClient = new Kafka({
   clientId: "producer-client",
-  brokers: [`${host}:9092`],
+  brokers: [`${host}:9092`], // add multiple brokers if needed
   ...kafkaClientOptions,
 });
 
