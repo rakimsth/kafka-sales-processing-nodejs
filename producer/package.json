@@ -4,7 +4,7 @@
   "private": true,
   "main": "nosql/build/index.js",
   "scripts": {
-    "build": "mkdir -p ./build && rm -r ./build && tsc",
+    "build": "tsc",
     "start": "nodemon src/index.ts",
     "production": "npm run build && node build/index.js",
     "pretty": "prettier --write ."
