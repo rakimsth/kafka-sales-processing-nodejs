@@ -1,7 +1,4 @@
 import "dotenv/config";
-
-import express, { Application } from "express";
-import morgan from "morgan";
 import mongoose from "mongoose";
 
 import consumer from "./modules/consumer";
@@ -9,10 +6,6 @@ import consumer from "./modules/consumer";
 (async () => {
   await consumer();
 })();
-
-const app: Application = express();
-
-const port: number = Number(process.env.PORT) || 5555;
 
 type Options = {
   autoIndex: boolean;
@@ -39,10 +32,3 @@ mongoose
     console.log(`Connected to ${db.connection.name} DB...`);
   })
   .catch((error) => console.log(error));
-
-app.use(morgan("tiny"));
-app.use(express.json());
-
-app.listen(port, () => {
-  console.log(`Example NoSQL app listening on port ${port}`);
-});
